@@ -14,6 +14,7 @@
 
 %pgdg_set_gis_variables() %{expand: \
 %global geosmajorversion		39
+%global geos314majorversion		314
 %global geos313majorversion		313
 %global geos312majorversion		312
 %global geos311majorversion		311
@@ -58,6 +59,7 @@
 %global geos311instdir			/usr/geos%{geos311majorversion}
 %global geos312instdir			/usr/geos%{geos312majorversion}
 %global geos313instdir			/usr/geos%{geos313majorversion}
+%global geos314instdir			/usr/geos%{geos314majorversion}
 %global geosinstdir			/usr/geos%{geosmajorversion}
 %global libgeotiffinstdir		/usr/libgeotiff%{libgeotiffmajorversion}
 %global libgeotiff17instdir		/usr/libgeotiff%{libgeotiff17majorversion}
@@ -72,6 +74,7 @@
 %global proj91instdir			/usr/proj%{proj91majorversion}
 %global proj82instdir			/usr/proj%{proj82majorversion}
 %global proj72instdir			/usr/proj%{proj72majorversion}
+%global geos314fullversion		3.14.0
 %global geos313fullversion		3.13.1
 %global geos312fullversion		3.12.2
 %global geos311fullversion		3.11.4
@@ -79,7 +82,7 @@
 %global geos39fullversion		3.9.2
 %global geosfullversion			3.9.2
 %global projfullversion			8.1.1
-%global proj96fullversion		9.6.0
+%global proj96fullversion		9.6.2
 %global proj95fullversion		9.5.1
 %global proj94fullversion		9.4.1
 %global proj93fullversion		9.3.1
