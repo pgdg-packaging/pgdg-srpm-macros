@@ -86,7 +86,7 @@
 %global geos39fullversion		3.9.2
 %global geosfullversion			3.9.2
 %global projfullversion			8.1.1
-%global proj97fullversion		9.7.0
+%global proj97fullversion		9.7.1
 %global proj96fullversion		9.6.2
 %global proj95fullversion		9.5.1
 %global proj94fullversion		9.4.1
@@ -97,7 +97,7 @@
 %global proj82fullversion		8.2.1
 %global proj72fullversion		7.2.1
 %global gdalfullversion			3.3.3
-%global gdal312fullversion		3.12.0
+%global gdal312fullversion		3.12.2
 %global gdal311fullversion		3.11.5
 %global gdal310fullversion		3.10.3
 %global gdal39fullversion		3.9.2
