@@ -21,6 +21,7 @@
 %global geos310majorversion		310
 %global geos39majorversion		39
 %global gdalmajorversion		33
+%global gdal313majorversion		313
 %global gdal312majorversion		312
 %global gdal311majorversion		311
 %global gdal310majorversion		310
@@ -50,6 +51,7 @@
 %global proj71majorversion		71
 %global proj70majorversion		70
 %global gdalinstdir			/usr/gdal%{gdalmajorversion}
+%global gdal313instdir			/usr/gdal%{gdal313majorversion}
 %global gdal312instdir			/usr/gdal%{gdal312majorversion}
 %global gdal311instdir			/usr/gdal%{gdal311majorversion}
 %global gdal310instdir			/usr/gdal%{gdal310majorversion}
@@ -80,7 +82,7 @@
 %global proj91instdir			/usr/proj%{proj91majorversion}
 %global proj82instdir			/usr/proj%{proj82majorversion}
 %global proj72instdir			/usr/proj%{proj72majorversion}
-%global geos314fullversion		3.14.0
+%global geos314fullversion		3.14.1
 %global geos313fullversion		3.13.1
 %global geos312fullversion		3.12.2
 %global geos311fullversion		3.11.4
@@ -88,7 +90,7 @@
 %global geos39fullversion		3.9.2
 %global geosfullversion			3.9.2
 %global projfullversion			8.1.1
-%global proj98fullversion		9.8.0
+%global proj98fullversion		9.8.1
 %global proj97fullversion		9.7.1
 %global proj96fullversion		9.6.2
 %global proj95fullversion		9.5.1
@@ -100,6 +102,7 @@
 %global proj82fullversion		8.2.1
 %global proj72fullversion		7.2.1
 %global gdalfullversion			3.3.3
+%global gdal313fullversion		3.13.2
 %global gdal312fullversion		3.12.2
 %global gdal311fullversion		3.11.5
 %global gdal310fullversion		3.10.3
