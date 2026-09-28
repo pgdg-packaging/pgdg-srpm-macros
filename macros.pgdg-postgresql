@@ -43,3 +43,25 @@
 %global gdal38fullversion		3.8.4
 \
 }
+
+# %check helpers, see README.md. %pgdg_check_init loads the shell functions
+# from pgdg-check-functions.sh and prepares a copy of the PostgreSQL
+# installation, with the package's files on top, to run test servers from.
+# initdb refuses to run as root, so a build running as root fails there:
+# the tests were asked for, and skipping them would hide that they did not
+# run.
+%pgdg_check_init \
+if [ "$(id -u)" = 0 ]; then \
+	echo "pgdg_check: PostgreSQL cannot be run as root, so the tests cannot run." \
+	echo "pgdg_check: Build as an unprivileged user, or without --define 'runselftest 1'." \
+	exit 1 \
+fi \
+. %{_rpmconfigdir}/pgdg-check-functions.sh \
+pgdg_check_init %{pginstdir} %{buildroot}
+
+# The common case: run the upstream regression tests against a single server.
+# Anything following the macro on its line is passed on to make.
+%pgdg_check_installcheck \
+%pgdg_check_init \
+pgdg_check_start main \
+pgdg_installcheck
