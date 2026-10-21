@@ -12,6 +12,34 @@
 # Macro for the daily snapshot packages
 %pgdg_build_timestamp %(date +"%Y%m%d")
 
+# Versionless install prefixes of the pgdg-* libraries and tools, which
+# replace the EPEL packages of the GIS stack on RHEL, per
+# https://github.com/pgdg-packaging/pgdg-rpms/issues/28 and
+# https://github.com/pgdg-packaging/pgdg-rpms/issues/422 . They have no
+# ld.so.conf.d file: consumers find the libraries through the rpath.
+%pgdg_armadilloinstdir		/usr/pgdg-armadillo
+%pgdg_arpackinstdir		/usr/pgdg-arpack
+%pgdg_bloscinstdir		/usr/pgdg-blosc
+%pgdg_cfitsioinstdir		/usr/pgdg-cfitsio
+%pgdg_freexlinstdir		/usr/pgdg-freexl
+%pgdg_gpsbabelinstdir		/usr/pgdg-gpsbabel
+%pgdg_gtk2instdir		/usr/pgdg-gtk2
+%pgdg_hdfinstdir		/usr/pgdg-hdf
+%pgdg_hdf5instdir		/usr/pgdg-hdf5
+%pgdg_libaecinstdir		/usr/pgdg-libaec
+%pgdg_libarrowinstdir		/usr/pgdg-arrow
+%pgdg_libdeflateinstdir		/usr/pgdg-libdeflate
+%pgdg_libgtainstdir		/usr/pgdg-libgta
+%pgdg_libkmlinstdir		/usr/pgdg-libkml
+%pgdg_minizipnginstdir		/usr/pgdg-minizip-ng
+%pgdg_netcdfinstdir		/usr/pgdg-netcdf
+%pgdg_opencvinstdir		/usr/pgdg-opencv
+%pgdg_qhullinstdir		/usr/pgdg-qhull
+%pgdg_shapelibinstdir		/usr/pgdg-shapelib
+%pgdg_superluinstdir		/usr/pgdg-superlu
+%pgdg_uriparserinstdir		/usr/pgdg-uriparser
+%pgdg_xercescinstdir		/usr/pgdg-xerces-c
+
 %pgdg_set_gis_variables() %{expand: \
 %global geos315majorversion		315
 %global geos314majorversion		314

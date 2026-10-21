@@ -33,6 +33,26 @@ Or install directly from an SRPM/RPM built from this repository.
 
 Once installed, the macros are automatically available to `rpmbuild` and `mock`. Spec files in the PGDG ecosystem use these macros to ensure consistent directory layouts and versioning across all supported distributions (RHEL, Fedora, SLES, etc.).
 
+## Install prefixes of the pgdg-* libraries
+
+On RHEL, the libraries and tools that the GIS stack used to take from EPEL
+are built as `pgdg-<name>` packages, installed under a versionless
+`/usr/pgdg-<name>` prefix: `%{pgdg_hdf5instdir}` is `/usr/pgdg-hdf5`, for
+example. They do not install an `ld.so.conf.d` file, and they do not
+provide their sonames, so they never replace OS or EPEL libraries.
+Consumers require them by package name, add the library directory of the
+prefix to their rpath, and filter the sonames out of their automatic
+requirements:
+
+```spec
+%global __requires_exclude ^lib(hdf5[a-z_]*|aec|sz)\\.so
+...
+BuildRequires:	pgdg-srpm-macros >= 2.1.0 pgdg-hdf5-devel
+Requires:	pgdg-hdf5%{?_isa}
+...
+export LDFLAGS="%{build_ldflags} -Wl,-rpath,%{pgdg_hdf5instdir}/lib64"
+```
+
 ## Running tests in %check
 
 The package being built is not installed into `%{pginstdir}` when `%check`
