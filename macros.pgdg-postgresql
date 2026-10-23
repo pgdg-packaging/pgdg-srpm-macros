@@ -13,7 +13,7 @@
 %pgdg_build_timestamp %(date +"%Y%m%d")
 
 # Versionless install prefixes of the pgdg-* libraries and tools, which
-# replace the EPEL packages of the GIS stack on RHEL, per
+# replace EPEL packages on RHEL (the GIS stack, pgBackRest, ...), per
 # https://github.com/pgdg-packaging/pgdg-rpms/issues/28 and
 # https://github.com/pgdg-packaging/pgdg-rpms/issues/422 . They have no
 # ld.so.conf.d file: consumers find the libraries through the rpath.
@@ -31,6 +31,7 @@
 %pgdg_libdeflateinstdir		/usr/pgdg-libdeflate
 %pgdg_libgtainstdir		/usr/pgdg-libgta
 %pgdg_libkmlinstdir		/usr/pgdg-libkml
+%pgdg_libssh2instdir		/usr/pgdg-libssh2
 %pgdg_minizipnginstdir		/usr/pgdg-minizip-ng
 %pgdg_netcdfinstdir		/usr/pgdg-netcdf
 %pgdg_opencvinstdir		/usr/pgdg-opencv

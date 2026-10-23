@@ -35,14 +35,14 @@ Once installed, the macros are automatically available to `rpmbuild` and `mock`.
 
 ## Install prefixes of the pgdg-* libraries
 
-On RHEL, the libraries and tools that the GIS stack used to take from EPEL
-are built as `pgdg-<name>` packages, installed under a versionless
-`/usr/pgdg-<name>` prefix: `%{pgdg_hdf5instdir}` is `/usr/pgdg-hdf5`, for
-example. They do not install an `ld.so.conf.d` file, and they do not
-provide their sonames, so they never replace OS or EPEL libraries.
-Consumers require them by package name, add the library directory of the
-prefix to their rpath, and filter the sonames out of their automatic
-requirements:
+On RHEL, the libraries and tools that the GIS stack, pgBackRest and other
+packages used to take from EPEL are built as `pgdg-<name>` packages,
+installed under a versionless `/usr/pgdg-<name>` prefix:
+`%{pgdg_hdf5instdir}` is `/usr/pgdg-hdf5`, for example. They do not install
+an `ld.so.conf.d` file, and they do not provide their sonames, so they
+never replace OS or EPEL libraries. Consumers require them by package name,
+add the library directory of the prefix to their rpath, and filter the
+sonames out of their automatic requirements:
 
 ```spec
 %global __requires_exclude ^lib(hdf5[a-z_]*|aec|sz)\\.so
