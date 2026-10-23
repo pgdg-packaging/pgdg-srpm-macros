@@ -13,8 +13,8 @@
 %pgdg_build_timestamp %(date +"%Y%m%d")
 
 # Versionless install prefixes of the pgdg-* libraries and tools, which
-# replace EPEL packages on RHEL (the GIS stack, pgBackRest, ...), per
-# https://github.com/pgdg-packaging/pgdg-rpms/issues/28 and
+# replace EPEL packages on RHEL (the GIS stack, pgBackRest, extensions,
+# ...), per https://github.com/pgdg-packaging/pgdg-rpms/issues/28 and
 # https://github.com/pgdg-packaging/pgdg-rpms/issues/422 . They have no
 # ld.so.conf.d file: consumers find the libraries through the rpath.
 %pgdg_armadilloinstdir		/usr/pgdg-armadillo
@@ -27,10 +27,14 @@
 %pgdg_hdfinstdir		/usr/pgdg-hdf
 %pgdg_hdf5instdir		/usr/pgdg-hdf5
 %pgdg_libaecinstdir		/usr/pgdg-libaec
+%pgdg_libargon2instdir		/usr/pgdg-libargon2
 %pgdg_libarrowinstdir		/usr/pgdg-arrow
 %pgdg_libdeflateinstdir		/usr/pgdg-libdeflate
 %pgdg_libgtainstdir		/usr/pgdg-libgta
 %pgdg_libkmlinstdir		/usr/pgdg-libkml
+%pgdg_libmongocinstdir		/usr/pgdg-libmongoc
+%pgdg_libscryptinstdir		/usr/pgdg-libscrypt
+%pgdg_libsodiuminstdir		/usr/pgdg-libsodium
 %pgdg_libssh2instdir		/usr/pgdg-libssh2
 %pgdg_minizipnginstdir		/usr/pgdg-minizip-ng
 %pgdg_netcdfinstdir		/usr/pgdg-netcdf
