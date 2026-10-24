@@ -31,6 +31,7 @@
 %pgdg_libarrowinstdir		/usr/pgdg-arrow
 %pgdg_libdeflateinstdir		/usr/pgdg-libdeflate
 %pgdg_libgtainstdir		/usr/pgdg-libgta
+%pgdg_libimagequantinstdir	/usr/pgdg-libimagequant
 %pgdg_libkmlinstdir		/usr/pgdg-libkml
 %pgdg_libmongocinstdir		/usr/pgdg-libmongoc
 %pgdg_libscryptinstdir		/usr/pgdg-libscrypt
