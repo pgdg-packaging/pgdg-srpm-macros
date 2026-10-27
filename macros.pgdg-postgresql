@@ -76,6 +76,46 @@
 \
 }
 
+# Python interpreter of the PGDG Python packages, see README.md. Specs call
+# %pgdg_python3_setup on their first line. It defines python3_pkgversion and
+# __python3 for the distribution, so that the python%{python3_pkgversion}-*
+# names and all Python macros (%pyproject_wheel, %py3_build,
+# %py_byte_compile, %python3_sitelib, ...) use the same Python. Without it,
+# __python3 falls back to the OS default, Python 3.6 on RHEL 8. On SLES 15
+# it also defines pythons and python3_sitelib, so that the SUSE pyproject
+# macros build the python311 flavor instead of python3 (3.6). There is no
+# way to opt out: every PGDG Python package uses the Python of the table in
+# README.md. An unknown distribution or release stops the build: add it here
+# first.
+%pgdg_python3_setup %{lua:\
+local fedora = tonumber(rpm.expand("0%{?fedora}"))\
+local rhel = tonumber(rpm.expand("0%{?rhel}"))\
+local amzn = tonumber(rpm.expand("0%{?amzn}"))\
+local suse = tonumber(rpm.expand("0%{?suse_version}"))\
+local pkgversion, python\
+if amzn == 2023 then\
+  pkgversion, python = "3.13", "3.13"\
+elseif suse == 1500 then\
+  pkgversion, python = "311", "3.11"\
+elseif suse == 1600 then\
+  pkgversion, python = "313", "3.13"\
+elseif rhel >= 8 and rhel <= 10 then\
+  pkgversion, python = "3.12", "3.12"\
+elseif fedora == 43 or fedora == 44 then\
+  pkgversion, python = "3.14", "3.14"\
+elseif fedora == 45 then\
+  pkgversion, python = "3.15", "3.15"\
+else\
+  error("pgdg_python3_setup: unknown distribution (fedora " .. fedora .. ", rhel " .. rhel .. ", amzn " .. amzn .. ", suse_version " .. suse .. "), update pgdg-srpm-macros")\
+end\
+rpm.define("python3_pkgversion " .. pkgversion)\
+rpm.define("__python3 /usr/bin/python" .. python)\
+if suse == 1500 then\
+  rpm.define("pythons python311")\
+  rpm.define("python3_sitelib %{_prefix}/lib/python3.11/site-packages")\
+end\
+}
+
 # %check helpers, see README.md. %pgdg_check_init loads the shell functions
 # from pgdg-check-functions.sh and prepares a copy of the PostgreSQL
 # installation, with the package's files on top, to run test servers from.
